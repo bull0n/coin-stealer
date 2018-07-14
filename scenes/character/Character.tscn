@@ -1,0 +1,91 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://scenes/character/Character.gd" type="Script" id=1]
+[ext_resource path="res://art/character/idle/0.png" type="Texture" id=2]
+[ext_resource path="res://art/character/idle/1.png" type="Texture" id=3]
+[ext_resource path="res://art/character/idle/2.png" type="Texture" id=4]
+[ext_resource path="res://art/character/idle/3.png" type="Texture" id=5]
+[ext_resource path="res://art/character/idle/4.png" type="Texture" id=6]
+[ext_resource path="res://art/character/idle/5.png" type="Texture" id=7]
+[ext_resource path="res://art/character/idle/6.png" type="Texture" id=8]
+[ext_resource path="res://art/character/idle/7.png" type="Texture" id=9]
+[ext_resource path="res://art/character/idle/8.png" type="Texture" id=10]
+[ext_resource path="res://art/character/idle/9.png" type="Texture" id=11]
+[ext_resource path="res://art/character/idle/10.png" type="Texture" id=12]
+[ext_resource path="res://art/character/jump/jump.png" type="Texture" id=13]
+[ext_resource path="res://art/character/run/0.png" type="Texture" id=14]
+[ext_resource path="res://art/character/run/1.png" type="Texture" id=15]
+[ext_resource path="res://art/character/run/2.png" type="Texture" id=16]
+[ext_resource path="res://art/character/run/3.png" type="Texture" id=17]
+[ext_resource path="res://art/character/run/4.png" type="Texture" id=18]
+[ext_resource path="res://art/character/run/5.png" type="Texture" id=19]
+[ext_resource path="res://art/character/run/6.png" type="Texture" id=20]
+[ext_resource path="res://art/character/run/7.png" type="Texture" id=21]
+[ext_resource path="res://art/character/run/8.png" type="Texture" id=22]
+[ext_resource path="res://art/character/run/9.png" type="Texture" id=23]
+[ext_resource path="res://art/character/run/10.png" type="Texture" id=24]
+[ext_resource path="res://art/character/run/11.png" type="Texture" id=25]
+[ext_resource path="res://art/character/run/12.png" type="Texture" id=26]
+[ext_resource path="res://art/character/run/13.png" type="Texture" id=27]
+[ext_resource path="res://art/character/run/14.png" type="Texture" id=28]
+[ext_resource path="res://art/character/run/15.png" type="Texture" id=29]
+[ext_resource path="res://art/character/run/16.png" type="Texture" id=30]
+[ext_resource path="res://art/character/run/17.png" type="Texture" id=31]
+[ext_resource path="res://art/character/jump/fall.png" type="Texture" id=32]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "run",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 33.1321
+height = 5.40202
+
+[node name="Character" type="KinematicBody2D"]
+
+position = Vector2( 17.262, 27.6431 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+maxSpeed = 800
+friction = 0.4
+
+[node name="Sprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "run"
+frame = 2
+playing = true
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Collision" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 1.90735e-06, -1.43394 )
+shape = SubResource( 2 )
+
+
