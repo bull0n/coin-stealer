@@ -1,21 +1,26 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://art/tiles/Grass.png" type="Texture" id=1]
-[ext_resource path="res://art/tiles/Dirt.png" type="Texture" id=2]
-[ext_resource path="res://art/tiles/GrassMid.png" type="Texture" id=3]
-[ext_resource path="res://art/tiles/GrassRight.png" type="Texture" id=4]
-[ext_resource path="res://art/tiles/GrassLeft.png" type="Texture" id=5]
-[ext_resource path="res://art/tiles/GrassHillRight2.png" type="Texture" id=6]
-[ext_resource path="res://art/tiles/GrassHillLeft2.png" type="Texture" id=7]
-[ext_resource path="res://art/tiles/GrassHillRight.png" type="Texture" id=8]
-[ext_resource path="res://art/tiles/GrassHillLeft.png" type="Texture" id=9]
+[ext_resource path="res://art/tiles/unique.png" type="Texture" id=1]
+[ext_resource path="res://art/tiles/inside.png" type="Texture" id=2]
+[ext_resource path="res://art/tiles/mid.png" type="Texture" id=3]
+[ext_resource path="res://art/tiles/right.png" type="Texture" id=4]
+[ext_resource path="res://art/tiles/left.png" type="Texture" id=5]
+[ext_resource path="res://art/tiles/cornerright.png" type="Texture" id=6]
+[ext_resource path="res://art/tiles/cornerleft.png" type="Texture" id=7]
+[ext_resource path="res://art/tiles/hillright.png" type="Texture" id=8]
+[ext_resource path="res://art/tiles/hillleft.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
+extents = Vector2( 64, 56.0353 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
 extents = Vector2( 64, 64 )
 
-[node name="Tileset" type="Node" index="0"]
+[node name="Tileset" type="Node"]
 
 [node name="GrassUnique" type="Sprite" parent="." index="0"]
 
@@ -27,7 +32,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GrassUnique" index="0"]
+[node name="body" type="StaticBody2D" parent="GrassUnique" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -38,9 +43,9 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassUnique/StaticBody2D" index="0"]
+[node name="collision" type="CollisionShape2D" parent="GrassUnique/body" index="0"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 71.8274 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
@@ -55,7 +60,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Dirt" index="0"]
+[node name="body" type="StaticBody2D" parent="Dirt" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -66,11 +71,10 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dirt/StaticBody2D" index="0"]
+[node name="collision" type="CollisionShape2D" parent="Dirt/body" index="0"]
 
 position = Vector2( 64, 64 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+shape = SubResource( 2 )
 
 [node name="GrassMiddle" type="Sprite" parent="." index="2"]
 
@@ -83,7 +87,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GrassMiddle" index="0"]
+[node name="body" type="StaticBody2D" parent="GrassMiddle" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -94,9 +98,9 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassMiddle/StaticBody2D" index="0"]
+[node name="collision" type="CollisionShape2D" parent="GrassMiddle/body" index="0"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 72 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
@@ -111,7 +115,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GrassRight" index="0"]
+[node name="body" type="StaticBody2D" parent="GrassRight" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -122,9 +126,9 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassRight/StaticBody2D" index="0"]
+[node name="collision" type="CollisionShape2D" parent="GrassRight/body" index="0"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 72 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
@@ -139,7 +143,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GrassLeft" index="0"]
+[node name="body" type="StaticBody2D" parent="GrassLeft" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -150,15 +154,14 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassLeft/StaticBody2D" index="0"]
+[node name="collision" type="CollisionShape2D" parent="GrassLeft/body" index="0"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 72 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="GrassCornerRight" type="Sprite" parent="." index="5"]
 
-editor/display_folded = true
 position = Vector2( 512, 256 )
 texture = ExtResource( 6 )
 centered = false
@@ -167,7 +170,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GrassCornerRight" index="0"]
+[node name="body" type="StaticBody2D" parent="GrassCornerRight" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -178,15 +181,13 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassCornerRight/StaticBody2D" index="0"]
+[node name="collision" type="CollisionPolygon2D" parent="GrassCornerRight/body" index="0"]
 
-position = Vector2( 64, 64 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+build_mode = 0
+polygon = PoolVector2Array( 0, 0, 0, 128, 128, 128, 128, 16, 112, 0 )
 
 [node name="GrassCornerLeft" type="Sprite" parent="." index="6"]
 
-editor/display_folded = true
 position = Vector2( 768, 256 )
 texture = ExtResource( 7 )
 centered = false
@@ -195,7 +196,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GrassCornerLeft" index="0"]
+[node name="body" type="StaticBody2D" parent="GrassCornerLeft" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -206,11 +207,10 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrassCornerLeft/StaticBody2D" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrassCornerLeft/body" index="0"]
 
-position = Vector2( 64, 64 )
-shape = SubResource( 1 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+build_mode = 0
+polygon = PoolVector2Array( 0, 128, 0, 16, 16, 0, 128, 0, 128, 128 )
 
 [node name="GrassHillLeft" type="Sprite" parent="." index="7"]
 
@@ -223,7 +223,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="GrassHillLeft" index="0"]
+[node name="body" type="StaticBody2D" parent="GrassHillLeft" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -234,10 +234,10 @@ friction = 1.0
 bounce = 0.0
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrassHillLeft/StaticBody2D" index="0"]
+[node name="collision" type="CollisionPolygon2D" parent="GrassHillLeft/body" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 0, 0, 128, 128, 0, 128, 0, 0 )
+polygon = PoolVector2Array( 0, 16, 112, 128, 0, 128, 0, 16 )
 
 [node name="GrassHillRight" type="Sprite" parent="." index="8"]
 
@@ -264,7 +264,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrassHillRight/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 0, 128, 128, 128, 128, 0, 128, 0 )
+polygon = PoolVector2Array( 16, 128, 128, 128, 128, 16, 128, 16 )
 _sections_unfolded = [ "Transform" ]
 
 

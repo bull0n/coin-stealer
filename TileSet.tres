@@ -1,29 +1,44 @@
-[gd_resource type="TileSet" load_steps=13 format=2]
+[gd_resource type="TileSet" load_steps=16 format=2]
 
-[ext_resource path="res://art/tiles/Grass.png" type="Texture" id=1]
-[ext_resource path="res://art/tiles/GrassMid.png" type="Texture" id=2]
-[ext_resource path="res://art/tiles/GrassRight.png" type="Texture" id=3]
-[ext_resource path="res://art/tiles/GrassLeft.png" type="Texture" id=4]
-[ext_resource path="res://art/tiles/GrassHillRight2.png" type="Texture" id=5]
-[ext_resource path="res://art/tiles/GrassHillLeft2.png" type="Texture" id=6]
-[ext_resource path="res://art/tiles/GrassHillRight.png" type="Texture" id=7]
-[ext_resource path="res://art/tiles/GrassHillLeft.png" type="Texture" id=8]
-[ext_resource path="res://art/tiles/Dirt.png" type="Texture" id=9]
+[ext_resource path="res://art/tiles/unique.png" type="Texture" id=1]
+[ext_resource path="res://art/tiles/mid.png" type="Texture" id=2]
+[ext_resource path="res://art/tiles/right.png" type="Texture" id=3]
+[ext_resource path="res://art/tiles/left.png" type="Texture" id=4]
+[ext_resource path="res://art/tiles/cornerright.png" type="Texture" id=5]
+[ext_resource path="res://art/tiles/cornerleft.png" type="Texture" id=6]
+[ext_resource path="res://art/tiles/hillright.png" type="Texture" id=7]
+[ext_resource path="res://art/tiles/hillleft.png" type="Texture" id=8]
+[ext_resource path="res://art/tiles/inside.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 64, 64 )
-
-[sub_resource type="ConvexPolygonShape2D" id=2]
-
-custom_solver_bias = 0.0
-points = PoolVector2Array( 0, 0, 128, 128, 0, 128, 0, 0 )
+extents = Vector2( 64, 56.0353 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 
 custom_solver_bias = 0.0
-points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
+points = PoolVector2Array( 112, 0, 128, 16, 128, 128, 0, 128, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, 128, 0, 16, 16, 0, 128, 0, 128, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, 16, 112, 128, 0, 128, 0, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 128, 16, 128, 16, 128, 128, 16, 128 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 64, 64 )
 
 [resource]
 
@@ -39,7 +54,7 @@ points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 64, 64 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 64, 71.8274 )
 } ]
 1/name = "GrassMiddle"
 1/texture = ExtResource( 2 )
@@ -53,7 +68,7 @@ points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 64, 64 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 64, 72 )
 } ]
 2/name = "GrassRight"
 2/texture = ExtResource( 3 )
@@ -67,7 +82,7 @@ points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 64, 64 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 64, 72 )
 } ]
 3/name = "GrassLeft"
 3/texture = ExtResource( 4 )
@@ -81,7 +96,7 @@ points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 64, 64 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 64, 72 )
 } ]
 4/name = "GrassCornerRight"
 4/texture = ExtResource( 5 )
@@ -94,8 +109,8 @@ points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 64, 64 )
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/name = "GrassCornerLeft"
 5/texture = ExtResource( 6 )
@@ -108,8 +123,8 @@ points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 64, 64 )
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/name = "GrassHillLeft"
 6/texture = ExtResource( 7 )
@@ -122,7 +137,7 @@ points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 2 ),
+"shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/name = "GrassHillRight"
@@ -136,7 +151,7 @@ points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 3 ),
+"shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/name = "Dirt"
@@ -150,7 +165,7 @@ points = PoolVector2Array( 128, 0, 128, 0, 128, 128, 0, 128 )
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"shape": SubResource( 1 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 64, 64 )
 } ]
 
